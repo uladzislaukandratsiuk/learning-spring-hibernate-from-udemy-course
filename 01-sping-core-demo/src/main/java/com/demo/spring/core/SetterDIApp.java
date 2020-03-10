@@ -1,6 +1,6 @@
 package com.demo.spring.core;
 
-import com.demo.spring.core.core_logic.Coach;
+import com.demo.spring.core.core_logic.CricketCoach;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -17,10 +17,12 @@ public class SetterDIApp {
         ConfigurableApplicationContext context =
                 new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 
-        Coach coach = context.getBean("cricketCoach", Coach.class);
+        CricketCoach coach = context.getBean("cricketCoach", CricketCoach.class);
 
         log.info("DI with setter -> daily workout: {}", coach.getDailyWorkout());
         log.info("DI with setter -> daily fortune: {}", coach.getDailyFortune());
+        log.info("Literal Values Injection -> email address: {}, team: {}",
+                coach.getEmailAddress(), coach.getTeam());
 
         context.close();
     }

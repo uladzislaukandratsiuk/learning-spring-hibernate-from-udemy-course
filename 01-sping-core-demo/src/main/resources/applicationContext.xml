@@ -12,6 +12,8 @@
 
 	<bean id="cricketCoach" class="com.demo.spring.core.core_logic.CricketCoach">
 		<property name="fortuneService" ref="myFortune"/>
+		<property name="emailAddress" value="bestcoach@gmail.com"/>
+		<property name="team" value="Sunrisers Hyderabad"/>
 	</bean>
 
 </beans>
