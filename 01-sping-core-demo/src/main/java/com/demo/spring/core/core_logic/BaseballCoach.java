@@ -1,4 +1,4 @@
-package com.demo.spring.core;
+package com.demo.spring.core.core_logic;
 
 import com.demo.spring.core.service.FortuneService;
 

@@ -6,8 +6,12 @@
 
 	<bean id="myFortune" class="com.demo.spring.core.service.HappyFortuneService"/>
 
-	<bean id="myCoach" class="com.demo.spring.core.TrackCoach">
+	<bean id="myCoach" class="com.demo.spring.core.core_logic.TrackCoach">
 		<constructor-arg ref="myFortune"/>
+	</bean>
+
+	<bean id="cricketCoach" class="com.demo.spring.core.core_logic.CricketCoach">
+		<property name="fortuneService" ref="myFortune"/>
 	</bean>
 
 </beans>

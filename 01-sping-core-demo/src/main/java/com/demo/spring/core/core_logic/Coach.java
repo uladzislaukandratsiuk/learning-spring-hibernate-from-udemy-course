@@ -1,4 +1,4 @@
-package com.demo.spring.core;
+package com.demo.spring.core.core_logic;
 
 public interface Coach {
 
