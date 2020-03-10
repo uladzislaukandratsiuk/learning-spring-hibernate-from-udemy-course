@@ -4,6 +4,10 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="myCoach" class="com.demo.spring.core.TrackCoach"/>
+	<bean id="myFortune" class="com.demo.spring.core.service.HappyFortuneService"/>
+
+	<bean id="myCoach" class="com.demo.spring.core.TrackCoach">
+		<constructor-arg ref="myFortune"/>
+	</bean>
 
 </beans>

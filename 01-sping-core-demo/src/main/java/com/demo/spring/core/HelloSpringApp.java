@@ -19,6 +19,7 @@ public class HelloSpringApp {
         Coach coach = context.getBean("myCoach", Coach.class);
 
         log.info("daily workout: {}", coach.getDailyWorkout());
+        log.info("daily fortune: {}", coach.getDailyFortune());
 
         context.close();
     }
