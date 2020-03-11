@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myFortune" class="com.demo.spring.core.service.HappyFortuneService"/>
+
+    <bean id="myCoach" class="com.demo.spring.core.core_logic.TrackCoach"
+          init-method="preInit"
+          destroy-method="cleanUp">
+        <constructor-arg ref="myFortune"/>
+    </bean>
+
+</beans>
