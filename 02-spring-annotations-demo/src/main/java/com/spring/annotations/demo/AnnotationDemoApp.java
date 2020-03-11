@@ -19,7 +19,10 @@ public class AnnotationDemoApp {
 
         Coach coach = context.getBean("tennisCoach", Coach.class);
 
-        log.info("daily workout: {}", coach.getDailyWorkout());
+        log.info("Annotations DI with constructor -> daily workout: {}",
+                coach.getDailyWorkout());
+        log.info("Annotations DI with constructor -> daily fortune: {}",
+                coach.getDailyFortune());
 
         context.close();
     }
