@@ -16,11 +16,11 @@ public class JavaConfigDemoApp {
         ConfigurableApplicationContext context =
                 new AnnotationConfigApplicationContext(SportConfig.class);
 
-        Coach coach = context.getBean("tennisCoach", Coach.class);
+        Coach coach = context.getBean("swimCoach", Coach.class);
 
-        log.info("Annotations DI with constructor -> daily workout: {}",
+        log.info("Annotations with java code -> daily workout: {}",
                 coach.getDailyWorkout());
-        log.info("Annotations DI with constructor -> daily fortune: {}",
+        log.info("Annotations with java code -> daily fortune: {}",
                 coach.getDailyFortune());
 
         context.close();
