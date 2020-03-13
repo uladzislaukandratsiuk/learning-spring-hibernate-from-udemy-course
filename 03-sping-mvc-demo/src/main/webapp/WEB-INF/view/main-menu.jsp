@@ -5,7 +5,8 @@
     <title>Main page</title>
 </head>
 <body>
-<h1>Spring MVC - home page!</h1>
-
+    <h1>Spring MVC - home page!</h1>
+    <hr>
+    <a href="show-form">Hello World form</a>
 </body>
 </html>

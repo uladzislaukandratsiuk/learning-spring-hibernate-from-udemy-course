@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hello World</title>
 </head>
 <body>
-<h1>Hello from HTML page!</h1>
-
+    <h1>Student name: ${param.studentName}</h1>
 </body>
 </html>
