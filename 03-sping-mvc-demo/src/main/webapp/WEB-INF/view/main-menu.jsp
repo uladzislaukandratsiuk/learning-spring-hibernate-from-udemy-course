@@ -8,5 +8,7 @@
     <h1>Spring MVC - home page!</h1>
     <hr>
     <a href="show-form">Hello World form</a>
+    <br><br>
+    <a href="student/show-form">Student form</a>
 </body>
 </html>
