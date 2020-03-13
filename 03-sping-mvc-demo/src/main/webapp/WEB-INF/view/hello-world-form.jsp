@@ -5,7 +5,7 @@
     <title>Hello World - Input form</title>
 </head>
 <body>
-    <form action="process-form" method="GET">
+    <form action="welcome-form" method="GET">
         <input type="text" name="studentName" placeHolder="What's your name?"/>
         <input type="submit"/>
     </form>
