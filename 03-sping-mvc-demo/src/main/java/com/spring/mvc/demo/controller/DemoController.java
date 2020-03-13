@@ -12,4 +12,9 @@ public class DemoController {
     public String welcome() {
         return "hello";
     }
+
+    @GetMapping("/")
+    public String showPage() {
+        return "main-menu";
+    }
 }
