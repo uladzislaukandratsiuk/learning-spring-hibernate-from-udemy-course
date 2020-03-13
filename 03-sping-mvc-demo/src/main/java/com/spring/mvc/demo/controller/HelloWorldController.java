@@ -3,8 +3,7 @@ package com.spring.mvc.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloWorldController {
@@ -20,9 +19,8 @@ public class HelloWorldController {
     }
 
     @GetMapping("welcome-form")
-    public String showWelcomeForm(HttpServletRequest request, Model model) {
+    public String showWelcomeForm(@RequestParam("studentName") String theName, Model model) {
 
-        String theName = request.getParameter("studentName");
         String result = "Welcome, " + theName.toUpperCase() + "!";
         model.addAttribute("message", result);
 
