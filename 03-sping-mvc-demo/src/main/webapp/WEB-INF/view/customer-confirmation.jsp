@@ -10,4 +10,8 @@
 
 The customer is confirmed: ${customer.firstName} ${customer.lastName}
 
+<br><br>
+
+Free passes: ${customer.freePasses}
+
 </body>

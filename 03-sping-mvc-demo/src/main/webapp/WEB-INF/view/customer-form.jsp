@@ -13,6 +13,8 @@
 
     <i>Fill out the form. Asterisk (*) means required.</i>
 
+    <br><br>
+
     <form:form action="process-form" modelAttribute="customer">
 
         First name: <form:input path="firstName"/>
@@ -21,6 +23,11 @@
 
         Last name(*): <form:input path="lastName"/>
         <form:errors path="lastName" cssClass="error"/>
+
+        <br><br>
+
+        Free passes: <form:input path="freePasses"/>
+        <form:errors path="freePasses" cssClass="error"/>
 
         <br><br>
 
