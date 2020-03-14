@@ -3,13 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Confirmation Form</title>
+	<title>Student Confirmation</title>
 </head>
+
 <body>
-    The student is confirmed: ${student.firstName} ${student.lastName}
 
-    <br><br>
+The student is confirmed: ${student.firstName} ${student.lastName}
 
-    Country: ${student.country}
+<br><br>
+
+Country: Code = ${student.countryCode}, Value = ${student.countryValue}
+
 </body>
-</html>

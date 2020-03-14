@@ -18,11 +18,11 @@
 
         Country:
 
-        <form:select path="country">
+     		<form:select path="countryCode">
 
-            <form:options items="${student.countryOptions}"/>
+     			<form:options items="${countryOptions}" />
 
-        </form:select>
+     		</form:select>
 
         <br><br>
 

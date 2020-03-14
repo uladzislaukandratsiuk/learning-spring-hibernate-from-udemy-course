@@ -1,27 +1,13 @@
 package com.spring.mvc.demo.model;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class Student {
 
     private String firstName;
     private String lastName;
-    private String country;
-
-    private final Map<String, String> countryOptions;
+    private String countryCode;
+    private String countryValue;
 
     public Student() {
-        countryOptions = new LinkedHashMap<>();
-
-        countryOptions.put("BY", "Belarus");
-        countryOptions.put("RU", "Russia");
-        countryOptions.put("PL", "Poland");
-    }
-
-    public Map<String, String> getCountryOptions() {
-        return Collections.unmodifiableMap(countryOptions);
     }
 
     public String getFirstName() {
@@ -40,12 +26,20 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public String getCountryValue() {
+        return countryValue;
+    }
+
+    public void setCountryValue(String countryValue) {
+        this.countryValue = countryValue;
     }
 
     @Override
@@ -53,7 +47,8 @@ public class Student {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", country='" + country + '\'' +
+                ", countryCode='" + countryCode + '\'' +
+                ", countryValue='" + countryValue + '\'' +
                 '}';
     }
 }
