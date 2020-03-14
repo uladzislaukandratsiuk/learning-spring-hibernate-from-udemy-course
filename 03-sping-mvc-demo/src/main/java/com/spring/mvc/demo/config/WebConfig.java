@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.spring.mvc.demo")
-@PropertySource("classpath:countries.properties")
+@PropertySource("classpath:studentOptions.properties")
 public class WebConfig {
 
     public static final String RESOLVER_PREFIX = "/WEB-INF/view/";

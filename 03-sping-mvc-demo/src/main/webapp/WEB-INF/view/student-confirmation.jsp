@@ -14,4 +14,8 @@ The student is confirmed: ${student.firstName} ${student.lastName}
 
 Country: Code = ${student.countryCode}, Value = ${student.countryValue}
 
+<br><br>
+
+Favorite language: ${student.favoriteLanguage}
+
 </body>

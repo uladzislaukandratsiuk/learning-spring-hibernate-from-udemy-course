@@ -6,6 +6,7 @@ public class Student {
     private String lastName;
     private String countryCode;
     private String countryValue;
+    private String favoriteLanguage;
 
     public Student() {
     }
@@ -42,6 +43,14 @@ public class Student {
         this.countryValue = countryValue;
     }
 
+    public String getFavoriteLanguage() {
+        return favoriteLanguage;
+    }
+
+    public void setFavoriteLanguage(String favoriteLanguage) {
+        this.favoriteLanguage = favoriteLanguage;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -49,6 +58,7 @@ public class Student {
                 ", lastName='" + lastName + '\'' +
                 ", countryCode='" + countryCode + '\'' +
                 ", countryValue='" + countryValue + '\'' +
+                ", favoriteLanguage='" + favoriteLanguage + '\'' +
                 '}';
     }
 }
