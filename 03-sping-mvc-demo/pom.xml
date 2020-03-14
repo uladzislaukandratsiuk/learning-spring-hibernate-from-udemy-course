@@ -20,6 +20,7 @@
         <jstl.version>1.2</jstl.version>
         <war-plugin.version>3.2.3</war-plugin.version>
         <cargo-plugin.version>1.7.10</cargo-plugin.version>
+        <hibernate.version>6.1.2.Final</hibernate.version>
         <tomcat.port>8090</tomcat.port>
     </properties>
 
@@ -55,6 +56,11 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
     </dependencies>
     <build>

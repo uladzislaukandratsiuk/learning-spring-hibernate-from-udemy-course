@@ -10,5 +10,7 @@
     <a href="show-form">Hello World form</a>
     <br><br>
     <a href="student/show-form">Student form</a>
+    <br><br>
+    <a href="customer/show-form">Customer form</a>
 </body>
 </html>
