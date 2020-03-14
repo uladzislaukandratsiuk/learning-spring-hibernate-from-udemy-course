@@ -18,4 +18,16 @@ Country: Code = ${student.countryCode}, Value = ${student.countryValue}
 
 Favorite language: ${student.favoriteLanguage}
 
+<br><br>
+
+Operating Systems:
+
+<ul>
+	<c:forEach var="temp" items="${student.operatingSystem}">
+
+		<li> ${temp} </li>
+
+	</c:forEach>
+</ul>
+
 </body>

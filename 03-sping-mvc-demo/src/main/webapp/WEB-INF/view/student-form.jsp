@@ -32,6 +32,12 @@
 
         <br><br>
 
+        Operating Systems:
+
+        <form:checkboxes path="operatingSystem" items="${operatingSystems}"  />
+
+        <br><br>
+
         <input type="submit" value="Submit"/>
 
     </form:form>

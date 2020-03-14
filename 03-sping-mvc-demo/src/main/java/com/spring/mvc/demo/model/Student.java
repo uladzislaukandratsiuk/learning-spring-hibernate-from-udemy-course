@@ -7,6 +7,7 @@ public class Student {
     private String countryCode;
     private String countryValue;
     private String favoriteLanguage;
+    private String operatingSystem;
 
     public Student() {
     }
@@ -51,6 +52,14 @@ public class Student {
         this.favoriteLanguage = favoriteLanguage;
     }
 
+    public String getOperatingSystem() {
+        return operatingSystem;
+    }
+
+    public void setOperatingSystem(String operatingSystem) {
+        this.operatingSystem = operatingSystem;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -59,6 +68,7 @@ public class Student {
                 ", countryCode='" + countryCode + '\'' +
                 ", countryValue='" + countryValue + '\'' +
                 ", favoriteLanguage='" + favoriteLanguage + '\'' +
+                ", operatingSystem='" + operatingSystem + '\'' +
                 '}';
     }
 }
