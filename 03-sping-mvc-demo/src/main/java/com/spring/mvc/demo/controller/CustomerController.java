@@ -34,6 +34,7 @@ public class CustomerController {
     public String showProcessForm(@Valid @ModelAttribute("customer") Customer customer,
                                   BindingResult bindingResult) {
         log.info("customer: {}", customer);
+        log.info("bindingResult: {}", bindingResult);
         return bindingResult.hasErrors() ? "customer-form" : "customer-confirmation";
     }
 }
