@@ -28,7 +28,7 @@ public class DeleteInstructorDetailDemo {
 
             session.beginTransaction();
 
-            int id = 1;
+            int id = 3;
             InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
 
             if (instructorDetail != null) {
@@ -37,7 +37,11 @@ public class DeleteInstructorDetailDemo {
 
                 log.info("Found associated instructor: {}", instructorDetail.getInstructor());
 
-                log.info("Deleting instructorDetail and instructor(because of CascadeType.ALL)");
+                log.info("Setting instructor field reference instructorDetail to null");
+
+                instructorDetail.getInstructor().setInstructorDetail(null);
+
+                log.info("Deleting instructorDetail...");
 
                 session.delete(instructorDetail);
             }
