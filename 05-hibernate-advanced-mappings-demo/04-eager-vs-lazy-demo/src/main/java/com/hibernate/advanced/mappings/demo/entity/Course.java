@@ -17,7 +17,7 @@ public class Course {
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "instructor_id")
-    private InstructorEagerFetch instructorEagerFetch;
+    private Instructor instructor;
 
     public Course() {
     }
@@ -42,12 +42,12 @@ public class Course {
         this.title = title;
     }
 
-    public InstructorEagerFetch getInstructorEagerFetch() {
-        return instructorEagerFetch;
+    public Instructor getInstructor() {
+        return instructor;
     }
 
-    public void setInstructorEagerFetch(InstructorEagerFetch instructorEagerFetch) {
-        this.instructorEagerFetch = instructorEagerFetch;
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override

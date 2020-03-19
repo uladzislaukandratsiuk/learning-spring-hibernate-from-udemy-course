@@ -20,7 +20,7 @@ public class InstructorDetail {
     @OneToOne(mappedBy = "instructorDetail",
             cascade = {CascadeType.DETACH, CascadeType.MERGE,
                     CascadeType.PERSIST, CascadeType.REFRESH})
-    private InstructorEagerFetch instructorEagerFetch;
+    private Instructor instructor;
 
     public InstructorDetail() {
     }
@@ -54,12 +54,12 @@ public class InstructorDetail {
         this.hobby = hobby;
     }
 
-    public InstructorEagerFetch getInstructorEagerFetch() {
-        return instructorEagerFetch;
+    public Instructor getInstructor() {
+        return instructor;
     }
 
-    public void setInstructorEagerFetch(InstructorEagerFetch instructorEagerFetch) {
-        this.instructorEagerFetch = instructorEagerFetch;
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override

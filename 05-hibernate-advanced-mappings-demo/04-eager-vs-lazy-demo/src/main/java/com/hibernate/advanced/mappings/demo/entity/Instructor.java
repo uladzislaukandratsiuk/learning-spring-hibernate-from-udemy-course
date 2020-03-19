@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "instructor")
-public class InstructorEagerFetch {
+public class Instructor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,16 +26,16 @@ public class InstructorEagerFetch {
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    @OneToMany(fetch = FetchType.EAGER,
+    @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "instructor",
             cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Course> courses;
 
-    public InstructorEagerFetch() {
+    public Instructor() {
     }
 
-    public InstructorEagerFetch(String firstName, String lastName, String email) {
+    public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -97,7 +97,7 @@ public class InstructorEagerFetch {
 
         this.courses.add(course);
 
-        course.setInstructorEagerFetch(this);
+        course.setInstructor(this);
     }
 
     @Override
@@ -108,7 +108,6 @@ public class InstructorEagerFetch {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", instructorDetail=" + instructorDetail +
-                ", course=" + courses +
                 '}';
     }
 }

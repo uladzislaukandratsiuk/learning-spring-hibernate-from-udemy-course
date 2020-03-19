@@ -1,7 +1,7 @@
 package com.hibernate.advanced.mappings.demo;
 
 import com.hibernate.advanced.mappings.demo.entity.Course;
-import com.hibernate.advanced.mappings.demo.entity.InstructorEagerFetch;
+import com.hibernate.advanced.mappings.demo.entity.Instructor;
 import com.hibernate.advanced.mappings.demo.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,7 +17,7 @@ public class EagerFetchDemo {
 
         SessionFactory sessionFactory = new Configuration()
                 .configure()
-                .addAnnotatedClass(InstructorEagerFetch.class)
+                .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .addAnnotatedClass(Course.class)
                 .buildSessionFactory();
@@ -31,13 +31,13 @@ public class EagerFetchDemo {
             session.beginTransaction();
 
             int id = 1;
-            InstructorEagerFetch instructorEagerFetch = session.get(InstructorEagerFetch.class, id);
+            Instructor instructor = session.get(Instructor.class, id);
 
-            if (instructorEagerFetch != null) {
+            if (instructor != null) {
 
-                log.info("Found instructor: {}", instructorEagerFetch);
+                log.info("Found instructor: {}", instructor);
 
-                log.info("Found courses: {}", instructorEagerFetch.getCourses());
+                log.info("Found courses: {}", instructor.getCourses());
 
             } else {
                 log.info("Instructor with id={}, is not found!", id);
