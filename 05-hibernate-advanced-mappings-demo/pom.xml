@@ -12,6 +12,7 @@
         <module>01-one-to-one-uni</module>
         <module>02-one-to-one-bi</module>
         <module>03-one-to-many-bi</module>
+        <module>04-eager-vs-lazy-demo</module>
     </modules>
 
     <properties>
