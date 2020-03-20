@@ -3,15 +3,16 @@ package com.hibernate.advanced.mappings.demo;
 import com.hibernate.advanced.mappings.demo.entity.Course;
 import com.hibernate.advanced.mappings.demo.entity.Instructor;
 import com.hibernate.advanced.mappings.demo.entity.InstructorDetail;
+import com.hibernate.advanced.mappings.demo.entity.Review;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CreateCoursesDemo {
+public class CreateCoursesAndReviewsDemo {
 
-    private static Logger log = LoggerFactory.getLogger(CreateCoursesDemo.class);
+    private static Logger log = LoggerFactory.getLogger(CreateCoursesAndReviewsDemo.class);
 
     public static void main(String[] args) {
 
@@ -20,6 +21,7 @@ public class CreateCoursesDemo {
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .addAnnotatedClass(Course.class)
+                .addAnnotatedClass(Review.class)
                 .buildSessionFactory();
 
         try (sessionFactory) {
@@ -30,25 +32,16 @@ public class CreateCoursesDemo {
 
             session.beginTransaction();
 
-            int id = 1;
-            Instructor instructor = session.get(Instructor.class, id);
+            Course course = new Course("Java 8 - Crush Course");
 
-            if (instructor != null) {
+            course.addReview(new Review("Great course love it"));
+            course.addReview(new Review("Cool course, well done"));
+            course.addReview(new Review("Such a waste"));
 
-                Course firstCourse = new Course("Java 8 - Crush Course");
-                Course secondCourse = new Course("Java - Lambda and Streams full Course");
+            log.info("Saving course...");
 
-                instructor.addCourse(firstCourse);
-                instructor.addCourse(secondCourse);
+            session.save(course);
 
-                log.info("Saving courses...");
-
-                session.save(firstCourse);
-                session.save(secondCourse);
-
-            } else {
-                log.info("Instructor with id={}, is not found!", id);
-            }
 
             session.getTransaction().commit();
 
