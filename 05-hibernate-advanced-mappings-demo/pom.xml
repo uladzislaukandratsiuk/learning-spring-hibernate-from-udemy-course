@@ -14,6 +14,7 @@
         <module>03-one-to-many-bi</module>
         <module>04-eager-vs-lazy-demo</module>
         <module>05-one-to-many-uni</module>
+        <module>06-many-to-many</module>
     </modules>
 
     <properties>
