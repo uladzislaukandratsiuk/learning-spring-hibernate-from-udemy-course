@@ -20,7 +20,6 @@
         <jstl.version>1.2</jstl.version>
         <hibernate-version>5.4.11.Final</hibernate-version>
         <tomcat-dbcp.version>9.0.1</tomcat-dbcp.version>
-        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
         <war-plugin.version>3.2.3</war-plugin.version>
         <cargo-plugin.version>1.7.10</cargo-plugin.version>
         <tomcat.port>8090</tomcat.port>
@@ -57,11 +56,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>

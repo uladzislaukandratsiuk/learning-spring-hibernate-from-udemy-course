@@ -1,17 +1,19 @@
 package com.web.customer.tracker.config;
 
-import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@EnableTransactionManagement
 @ComponentScan(basePackages = "com.web.customer.tracker")
 public class DataSourceConfig {
 
@@ -27,7 +29,13 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource getDataSource() {
-        return DataSourceBuilder.create().build();
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&serverTimezone=UTC");
+        dataSource.setUsername("springstudent");
+        dataSource.setPassword("springstudent");
+
+        return dataSource;
     }
 
     @Bean
