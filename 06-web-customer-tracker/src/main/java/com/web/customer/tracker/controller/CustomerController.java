@@ -1,5 +1,6 @@
 package com.web.customer.tracker.controller;
 
+import com.web.customer.tracker.entity.Customer;
 import com.web.customer.tracker.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,5 +19,11 @@ public class CustomerController {
     public String listOfCustomers(Model model) {
         model.addAttribute("customers", customerService.getCustomers());
         return "list-customers";
+    }
+
+    @GetMapping("add-customer")
+    private String showFormForAdd(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "customer-form";
     }
 }
