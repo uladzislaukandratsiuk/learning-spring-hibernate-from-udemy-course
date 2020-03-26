@@ -12,7 +12,7 @@ public class MyDemoLoggingAspect {
 
     private static Logger log = LoggerFactory.getLogger(MyDemoLoggingAspect.class);
 
-    @Before("execution(public void addAccount())")
+    @Before("execution(public void com.spring.aop.demo.dao.AccountDAO.addAccount())")
     public void beforeAddAccountAdvice() {
         log.info("Executing @Before advice on addAccount()");
     }
