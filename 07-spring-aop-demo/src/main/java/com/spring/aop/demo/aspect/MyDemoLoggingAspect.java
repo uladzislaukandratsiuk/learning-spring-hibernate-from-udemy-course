@@ -12,7 +12,7 @@ public class MyDemoLoggingAspect {
 
     private static Logger log = LoggerFactory.getLogger(MyDemoLoggingAspect.class);
 
-    @Before("execution(public void add*())")
+    @Before("execution(* add*())")
     public void beforeAddAccountAdvice() {
         log.info("Executing @Before advice on addAccount()");
     }
