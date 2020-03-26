@@ -1,8 +1,8 @@
 package com.spring.aop.demo;
 
-import com.spring.aop.demo.aspect.MyDemoLoggingAspect;
 import com.spring.aop.demo.config.DemoConfig;
 import com.spring.aop.demo.dao.AccountDAO;
+import com.spring.aop.demo.dao.MembershipDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -17,13 +17,13 @@ public class MainDemoApp {
         ConfigurableApplicationContext context =
                 new AnnotationConfigApplicationContext(DemoConfig.class);
 
-        AccountDAO bean = context.getBean("accountDAO", AccountDAO.class);
+        AccountDAO accountBean = context.getBean("accountDAO", AccountDAO.class);
 
-        bean.addAccount();
+        MembershipDAO membershipBean = context.getBean("membershipDAO", MembershipDAO.class);
 
-        log.info("call addAccount() method again...");
+        accountBean.addAccount();
 
-        bean.addAccount();
+        membershipBean.addAccount();
 
         context.close();
     }
