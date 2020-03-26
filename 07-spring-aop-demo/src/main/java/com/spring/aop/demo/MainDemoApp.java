@@ -19,7 +19,7 @@ public class MainDemoApp {
 
         accountBean.addAccount();
 
-        membershipBean.addAccount();
+        membershipBean.addMembershipAccount();
 
         context.close();
     }
