@@ -24,6 +24,16 @@ public class MyDemoLoggingAspect {
 
     @Before("execution(* add*(com.spring.aop.demo.pojo.Account, ..))")
     public void beforeAddAccountsWithFewParamsAdvice() {
-        log.info("Executing @Before advice on any add*(Account account, ..) method with few params");
+        log.info("Executing @Before advice on any add*(Account account, ..) method with one or many params");
+    }
+
+    @Before("execution(* add*(..))")
+    public void beforeAddAccountWithAnyParamsAdvice() {
+        log.info("Executing @Before advice on any add*(..) method with none or many params");
+    }
+
+    @Before("execution(* com.spring.aop.demo.*.*.*(..))")
+    public void beforeAnyMethodInPackageAdvice() {
+        log.info("Executing @Before advice on any method in com.spring.aop.demo.* package");
     }
 }
