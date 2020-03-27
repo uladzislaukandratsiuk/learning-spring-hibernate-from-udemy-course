@@ -3,6 +3,7 @@ package com.spring.aop.demo;
 import com.spring.aop.demo.config.DemoConfig;
 import com.spring.aop.demo.dao.AccountDAO;
 import com.spring.aop.demo.dao.MembershipDAO;
+import com.spring.aop.demo.pojo.Account;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -17,7 +18,11 @@ public class MainDemoApp {
 
         MembershipDAO membershipBean = context.getBean("membershipDAO", MembershipDAO.class);
 
-        accountBean.addAccount();
+        Account account = new Account();
+
+        accountBean.addAccount(account);
+
+        accountBean.addVipAccount(account, true);
 
         membershipBean.addMembershipAccount();
 
