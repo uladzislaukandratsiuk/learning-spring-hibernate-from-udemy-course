@@ -18,6 +18,11 @@ public class PointcutMainDemoApp {
 
         CopyMembershipDAO membershipBean = context.getBean("copyMembershipDAO", CopyMembershipDAO.class);
 
+        accountBean.setName("Account name");
+        accountBean.setServiceCode("Service code");
+        accountBean.getName();
+        accountBean.getServiceCode();
+
         Account account = new Account();
 
         accountBean.copyAddAccount(account);

@@ -18,7 +18,19 @@ public class MyDemoLoggingPointcutAspect {
     private void forCopyDAOPackage() {
     }
 
-    @Before("forCopyDAOPackage()")
+    @Pointcut("execution(* com.spring.aop.demo.copydao.*.get*(..))")
+    private void getter() {
+    }
+
+    @Pointcut("execution(* com.spring.aop.demo.copydao.*.set*(..))")
+    private void setter() {
+    }
+
+    @Pointcut("forCopyDAOPackage() && !(getter() || setter())")
+    private void forCopyDaoPackageNoGetterSetter() {
+    }
+
+    @Before("forCopyDaoPackageNoGetterSetter()")
     public void beforeAnyMethodInPackageAdvice() {
         log.info("Executing @Before advice on any method in com.spring.aop.demo.copydao.* package");
     }

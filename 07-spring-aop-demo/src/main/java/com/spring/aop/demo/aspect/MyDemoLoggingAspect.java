@@ -32,8 +32,8 @@ public class MyDemoLoggingAspect {
         log.info("Executing @Before advice on any add*(..) method with none or many params");
     }
 
-    @Before("execution(* com.spring.aop.demo.*.*.*(..))")
+    @Before("execution(* com.spring.aop.demo.dao.*.*(..))")
     public void beforeAnyMethodInPackageAdvice() {
-        log.info("Executing @Before advice on any method in com.spring.aop.demo.* package");
+        log.info("Executing @Before advice on any method in com.spring.aop.demo.dao.* package");
     }
 }
