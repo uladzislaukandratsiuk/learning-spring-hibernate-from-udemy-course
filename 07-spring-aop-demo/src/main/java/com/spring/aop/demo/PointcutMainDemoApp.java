@@ -24,6 +24,8 @@ public class PointcutMainDemoApp {
         accountBean.getServiceCode();
 
         Account account = new Account();
+        account.setName("John");
+        account.setLevel("Gold");
 
         accountBean.copyAddAccount(account);
 

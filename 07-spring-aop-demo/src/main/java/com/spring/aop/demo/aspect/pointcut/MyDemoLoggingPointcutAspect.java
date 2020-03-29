@@ -1,6 +1,7 @@
 package com.spring.aop.demo.aspect.pointcut;
 
 import com.spring.aop.demo.aspect.MyDemoLoggingAspect;
+import com.spring.aop.demo.pojo.Account;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -22,6 +23,18 @@ public class MyDemoLoggingPointcutAspect {
         log.info("Executing @Before advice on any method in com.spring.aop.demo.copydao.* package");
 
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        log.info("Method signature:" + methodSignature);
+        log.info("Method signature:{}", methodSignature);
+
+        Object[] args = joinPoint.getArgs();
+
+        for (Object arg : args) {
+            log.info("Method argument:{}", arg);
+
+            if (arg instanceof Account) {
+                Account account = (Account) arg;
+                log.info("Method argument:{}", account.getName());
+                log.info("Method argument:{}", account.getLevel());
+            }
+        }
     }
 }
