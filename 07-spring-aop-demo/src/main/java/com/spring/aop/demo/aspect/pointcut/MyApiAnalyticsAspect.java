@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(2)
-public class MyDemoLoggingPointcutAspect {
+@Order(3)
+public class MyApiAnalyticsAspect {
 
     private static Logger log = LoggerFactory.getLogger(MyDemoLoggingAspect.class);
 
     @Before("com.spring.aop.demo.aspect.pointcut.AopDeclaration.forCopyDaoPackageNoGetterSetter()")
-    public void beforeAnyMethodInPackageAdvice() {
-        log.info("Executing @Before advice on any method in com.spring.aop.demo.copydao.* package");
+    public void performApiAnalytics() {
+        log.info("Performing API analytics");
     }
 }
