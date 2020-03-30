@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class MyCloudLogAsyncAspect {
 
-    private static Logger log = LoggerFactory.getLogger(MyDemoLoggingAspect.class);
+    private static Logger log = LoggerFactory.getLogger(MyCloudLogAsyncAspect.class);
 
     @Before("com.spring.aop.demo.aspect.pointcut.AopDeclaration.forCopyDaoPackageNoGetterSetter()")
     public void logToCloudAsync() {

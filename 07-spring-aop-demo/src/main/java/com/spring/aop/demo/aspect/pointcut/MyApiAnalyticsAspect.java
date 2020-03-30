@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Order(3)
 public class MyApiAnalyticsAspect {
 
-    private static Logger log = LoggerFactory.getLogger(MyDemoLoggingAspect.class);
+    private static Logger log = LoggerFactory.getLogger(MyApiAnalyticsAspect.class);
 
     @Before("com.spring.aop.demo.aspect.pointcut.AopDeclaration.forCopyDaoPackageNoGetterSetter()")
     public void performApiAnalytics() {
