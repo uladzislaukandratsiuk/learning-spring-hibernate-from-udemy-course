@@ -12,7 +12,11 @@ public class CopyAccountDAO {
     private String name;
     private String serviceCode;
 
-    public List<Account> findAccounts() {
+    public List<Account> findAccounts(boolean tripWare) {
+
+        if (tripWare) {
+            throw new RuntimeException("Trip wire!!");
+        }
 
         List<Account> accounts = new ArrayList<>();
 

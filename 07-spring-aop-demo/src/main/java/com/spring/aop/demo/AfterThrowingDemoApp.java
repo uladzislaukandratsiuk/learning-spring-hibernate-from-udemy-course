@@ -10,9 +10,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.List;
 
-public class AfterReturningDemoApp {
+public class AfterThrowingDemoApp {
 
-    private static Logger log = LoggerFactory.getLogger(AfterReturningDemoApp.class);
+    private static Logger log = LoggerFactory.getLogger(AfterThrowingDemoApp.class);
 
     public static void main(String[] args) {
 
@@ -21,7 +21,13 @@ public class AfterReturningDemoApp {
 
         CopyAccountDAO accountBean = context.getBean("copyAccountDAO", CopyAccountDAO.class);
 
-        List<Account> accounts = accountBean.findAccounts(true);
+        List<Account> accounts = null;
+
+        try {
+            accounts = accountBean.findAccounts(true);
+        } catch (Exception exc) {
+            log.info("Catching exception:{}", exc.toString());
+        }
 
         log.info("Main app return accounts:{}", accounts);
 

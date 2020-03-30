@@ -3,6 +3,7 @@ package com.spring.aop.demo.aspect.pointcut;
 import com.spring.aop.demo.pojo.Account;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -19,6 +20,18 @@ import java.util.List;
 public class MyDemoLoggingPointcutAspect {
 
     private static Logger log = LoggerFactory.getLogger(MyDemoLoggingPointcutAspect.class);
+
+    @AfterThrowing(
+            pointcut = "execution(* com.spring.aop.demo.copydao.CopyAccountDAO.findAccounts(..))",
+            throwing = "exception")
+    public void afterThrowingFindAccountsAdvice(JoinPoint joinPoint, Throwable exception) {
+        log.info("Executing @AfterThrowing advice on findAccounts(..) method exception");
+
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        log.info("Method signature:{}", methodSignature);
+
+        log.info("Exception:{}", exception.toString());
+    }
 
     @AfterReturning(
             pointcut = "execution(* com.spring.aop.demo.copydao.CopyAccountDAO.findAccounts(..))",
