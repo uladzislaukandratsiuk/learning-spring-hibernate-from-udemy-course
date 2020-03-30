@@ -31,6 +31,10 @@ public class MyDemoLoggingPointcutAspect {
         log.info("Method signature:{}", methodSignature);
 
         log.info("findAccounts() result:{}", accounts);
+
+        accounts.forEach(account -> account.setName(account.getName().toUpperCase()));
+
+        log.info("findAccounts() after modifying result:{}", accounts);
     }
 
     @Before("com.spring.aop.demo.aspect.pointcut.AopDeclaration.forCopyDaoPackageNoGetterSetter()")
