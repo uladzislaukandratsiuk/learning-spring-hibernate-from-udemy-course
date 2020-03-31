@@ -28,7 +28,15 @@ public class MyDemoLoggingPointcutAspect {
 
         long begin = System.currentTimeMillis();
 
-        Object result = proceedingJoinPoint.proceed();
+        Object result;
+
+        try {
+            result = proceedingJoinPoint.proceed();
+        } catch (Exception exc) {
+            log.warn(exc.getMessage());
+
+            result = "Traffic problem solved!";
+        }
 
         long end = System.currentTimeMillis();
 
