@@ -2,6 +2,7 @@ package com.spring.aop.demo.aspect.pointcut;
 
 import com.spring.aop.demo.pojo.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
@@ -17,6 +18,26 @@ import java.util.List;
 public class MyDemoLoggingPointcutAspect {
 
     private static Logger log = LoggerFactory.getLogger(MyDemoLoggingPointcutAspect.class);
+
+    @Around("execution(* com.spring.aop.demo.service.*.getFortune(..))")
+    public Object aroundGetFortune(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        log.info("Executing @Around advice on getFortune(..) method");
+
+        MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
+        log.info("Method signature: {}", methodSignature);
+
+        long begin = System.currentTimeMillis();
+
+        Object result = proceedingJoinPoint.proceed();
+
+        long end = System.currentTimeMillis();
+
+        long duration = end - begin;
+
+        log.info("Method execution duration: {} seconds", duration / 1000.0);
+
+        return result;
+    }
 
     @After("execution(* com.spring.aop.demo.copydao.CopyAccountDAO.findAccounts(..))")
     public void afterFinallyFindAccountsAdvice(JoinPoint joinPoint) {
