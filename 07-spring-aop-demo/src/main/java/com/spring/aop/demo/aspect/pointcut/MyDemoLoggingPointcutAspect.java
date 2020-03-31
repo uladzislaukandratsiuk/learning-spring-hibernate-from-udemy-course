@@ -2,10 +2,7 @@ package com.spring.aop.demo.aspect.pointcut;
 
 import com.spring.aop.demo.pojo.Account;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +17,15 @@ import java.util.List;
 public class MyDemoLoggingPointcutAspect {
 
     private static Logger log = LoggerFactory.getLogger(MyDemoLoggingPointcutAspect.class);
+
+    @After("execution(* com.spring.aop.demo.copydao.CopyAccountDAO.findAccounts(..))")
+    public void afterFinallyFindAccountsAdvice(JoinPoint joinPoint) {
+        log.info("Executing @After advice on findAccounts(..) method " +
+                "[IF METHOD EXECUTED WITH OR WITHOUT EXCEPTION]");
+
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        log.info("Method signature:{}", methodSignature);
+    }
 
     @AfterThrowing(
             pointcut = "execution(* com.spring.aop.demo.copydao.CopyAccountDAO.findAccounts(..))",
@@ -38,7 +44,9 @@ public class MyDemoLoggingPointcutAspect {
             returning = "accounts")
     public void afterReturningFindAccountsAdvice(JoinPoint joinPoint, List<Account> accounts) {
 
-        log.info("Executing @AfterReturning advice on any findAccounts(..) method with none or many params");
+        log.info("Executing @AfterReturning advice on any findAccounts(..)" +
+                " method with none or many params " +
+                "[ONLY IF METHOD EXECUTED WITHOUT EXCEPTION]");
 
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         log.info("Method signature:{}", methodSignature);
