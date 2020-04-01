@@ -21,25 +21,25 @@ public class CustomerController {
     }
 
     @GetMapping("add-customer")
-    private String showFormForAdd(Model model) {
+    public String showFormForAdd(Model model) {
         model.addAttribute("customer", new Customer());
         return "customer-form";
     }
 
     @PostMapping("save-customer")
-    private String saveCustomer(@ModelAttribute("customer") Customer customer) {
+    public String saveCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.saveCustomer(customer);
         return "redirect:/customer/list";
     }
 
     @GetMapping("update-customer")
-    private String updateCustomer(@RequestParam("customerId") int id, Model model) {
+    public String updateCustomer(@RequestParam("customerId") int id, Model model) {
         model.addAttribute("customer", customerService.getCustomer(id));
         return "customer-form";
     }
 
     @GetMapping("delete-customer")
-    private String deleteCustomer(@RequestParam("customerId") int id) {
+    public String deleteCustomer(@RequestParam("customerId") int id) {
         customerService.deleteCustomer(id);
         return "redirect:/customer/list";
     }
