@@ -18,8 +18,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication()
                 .withUser(users.username("john").password("test123").roles("EMPLOYEE"))
-                .withUser(users.username("marry").password("test123").roles("MANAGER"))
-                .withUser(users.username("andrew").password("test123").roles("ADMIN"));
+                .withUser(users.username("marry").password("test123").roles("EMPLOYEE", "MANAGER"))
+                .withUser(users.username("andrew").password("test123").roles("EMPLOYEE", "ADMIN"));
     }
 
     @Override
