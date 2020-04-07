@@ -2,6 +2,7 @@ package com.spring.security.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @Component
 @EnableWebMvc
 @ComponentScan(basePackages = "com.spring.security.demo")
+@PropertySource("classpath:persistence-mysql.properties")
 public class WebMvcConfig implements WebMvcConfigurer {
 
     public static final String RESOLVER_PREFIX = "/WEB-INF/view/";
