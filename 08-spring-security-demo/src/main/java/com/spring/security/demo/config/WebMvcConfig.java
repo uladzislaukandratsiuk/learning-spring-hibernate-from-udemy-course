@@ -27,7 +27,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public static final String RESOLVER_PREFIX = "/WEB-INF/view/";
     public static final String RESOLVER_SUFFIX = ".jsp";
 
-    private Logger log = LoggerFactory.getLogger(WebMvcConfig.class);
+    private final Logger log = LoggerFactory.getLogger(WebMvcConfig.class);
 
     @Autowired
     private Environment env;
