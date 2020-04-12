@@ -20,7 +20,7 @@
         <servlet-api.version>4.0.1</servlet-api.version>
         <jstl.version>1.2</jstl.version>
         <hibernate-version>5.4.11.Final</hibernate-version>
-        <tomcat-dbcp.version>9.0.1</tomcat-dbcp.version>
+        <c3p0.version>0.9.5.5</c3p0.version>
         <war-plugin.version>3.2.3</war-plugin.version>
         <cargo-plugin.version>1.7.10</cargo-plugin.version>
         <tomcat.port>8090</tomcat.port>
@@ -69,11 +69,6 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-dbcp</artifactId>
-            <version>${tomcat-dbcp.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectjrt.version}</version>
@@ -88,7 +83,13 @@
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
