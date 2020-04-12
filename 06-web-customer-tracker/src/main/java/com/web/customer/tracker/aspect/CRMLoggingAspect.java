@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CRMLoggingAspect {
 
-    private static Logger log = LoggerFactory.getLogger(CRMLoggingAspect.class);
+    private static final Logger log = LoggerFactory.getLogger(CRMLoggingAspect.class);
 
     @Before("com.web.customer.tracker.aspect.AopDeclaration.forAppFlow()")
     public void before(JoinPoint joinPoint) {
@@ -29,13 +29,11 @@ public class CRMLoggingAspect {
 
     @AfterReturning(
             pointcut = "com.web.customer.tracker.aspect.AopDeclaration.forAppFlow()",
-            returning = "result"
-    )
+            returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result) {
 
         String methodSignature = joinPoint.getSignature().toShortString();
         log.info("@AfterReturning advice on method: {}", methodSignature);
-
         log.info("Result: {}", result);
     }
 }
