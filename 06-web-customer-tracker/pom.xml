@@ -20,7 +20,8 @@
         <aspectjrt.version>1.9.5</aspectjrt.version>
         <servlet-api.version>4.0.1</servlet-api.version>
         <jstl.version>1.2</jstl.version>
-        <hibernate-version>5.4.11.Final</hibernate-version>
+        <hibernate.version>5.4.11.Final</hibernate.version>
+        <hibernate-validator.version>6.1.3.Final</hibernate-validator.version>
         <c3p0.version>0.9.5.5</c3p0.version>
         <war-plugin.version>3.2.3</war-plugin.version>
         <cargo-plugin.version>1.7.10</cargo-plugin.version>
@@ -82,11 +83,21 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate-version}</version>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
