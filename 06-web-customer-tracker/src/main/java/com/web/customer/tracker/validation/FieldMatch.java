@@ -5,7 +5,7 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Constraint(validatedBy = FieldMatchValidator.class)
-@Target({ElementType.TYPE, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
+@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface FieldMatch {
