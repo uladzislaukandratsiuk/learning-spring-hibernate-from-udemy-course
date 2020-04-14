@@ -90,7 +90,7 @@
 					</form:form>
 
                       <div>
-                            <a href="${pageContext.request.contextPath}/register/showRegistrationForm"
+                            <a href="${pageContext.request.contextPath}/register/registration-form"
                             class="btn btn-primary" role="button" aria-pressed="true">Register New User</a>
                       </div>
 
