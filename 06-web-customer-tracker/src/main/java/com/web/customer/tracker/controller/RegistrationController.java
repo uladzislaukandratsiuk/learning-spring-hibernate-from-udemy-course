@@ -55,6 +55,6 @@ public class RegistrationController {
         userService.save(crmUser);
         log.info("Successfully created user: " + userName);
 
-        return "registration-form";
+        return "registration-confirmation";
     }
 }

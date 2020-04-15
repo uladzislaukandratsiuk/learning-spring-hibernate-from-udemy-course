@@ -113,7 +113,12 @@
 								<button type="submit" class="btn btn-primary">Register</button>
 							</div>
 						</div>
-						
+
+                        <div>
+                            <a href="${pageContext.request.contextPath}/login-page"
+                            class="btn btn-primary" role="button" aria-pressed="true">Login user</a>
+                        </div>
+
 					</form:form>
 
 				</div>

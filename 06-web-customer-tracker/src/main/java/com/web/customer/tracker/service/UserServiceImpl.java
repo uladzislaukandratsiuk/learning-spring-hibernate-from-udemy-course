@@ -31,13 +31,13 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    @Transactional
+    @Transactional("securityTransactionManager")
     public User findUserByName(String userName) {
         return userDao.findUserByName(userName);
     }
 
     @Override
-    @Transactional
+    @Transactional("securityTransactionManager")
     public void save(CrmUser crmUser) {
         User user = new User();
         user.setUserName(crmUser.getUserName());
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional("securityTransactionManager")
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         User user = userDao.findUserByName(userName);
         if (user == null) throw new UsernameNotFoundException("Invalid username or password.");

@@ -9,9 +9,9 @@
 	<h2>User registered successfully!</h2>
 
 	<hr>
-	
-	<a href="${pageContext.request.contextPath}/register/registration-form">Login with new user</a>
-	
+
+	<a href="${pageContext.request.contextPath}/login-page">Login with new user</a>
+
 </body>
 
 </html>

@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public class CustomerDAOImpl implements CustomerDAO {
 
     @Autowired
+    @Qualifier(value = "crmSessionFactory")
     private SessionFactory sessionFactory;
 
     @Override

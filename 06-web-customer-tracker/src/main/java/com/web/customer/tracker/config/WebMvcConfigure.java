@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -40,7 +41,7 @@ public class WebMvcConfigure implements WebMvcConfigurer {
     @Autowired
     private Environment env;
 
-    @Bean
+    @Bean(name = "crmDataSource")
     public DataSource crmDataSource() {
 
         ComboPooledDataSource crmDataSource = new ComboPooledDataSource();
@@ -66,7 +67,7 @@ public class WebMvcConfigure implements WebMvcConfigurer {
         return crmDataSource;
     }
 
-    @Bean
+    @Bean(name = "securityDataSource")
     public DataSource securityDataSource() {
 
         ComboPooledDataSource securityDataSource = new ComboPooledDataSource();
@@ -110,8 +111,8 @@ public class WebMvcConfigure implements WebMvcConfigurer {
         return props;
     }
 
-    @Bean
-    public LocalSessionFactoryBean sessionFactory() {
+    @Bean(name = "crmSessionFactory")
+    public LocalSessionFactoryBean crmSessionFactory() {
 
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 
@@ -122,9 +123,33 @@ public class WebMvcConfigure implements WebMvcConfigurer {
         return sessionFactory;
     }
 
-    @Bean
+    @Bean(name = "securitySessionFactory")
+    public LocalSessionFactoryBean securitySessionFactory() {
+
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+
+        sessionFactory.setDataSource(securityDataSource());
+        sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
+        sessionFactory.setHibernateProperties(getHibernateProperties());
+
+        return sessionFactory;
+    }
+
+    @Bean(name = "crmTransactionManager")
     @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+    public HibernateTransactionManager crmTransactionManager(
+            @Qualifier(value = "crmSessionFactory") SessionFactory sessionFactory) {
+
+        HibernateTransactionManager txManager = new HibernateTransactionManager();
+        txManager.setSessionFactory(sessionFactory);
+
+        return txManager;
+    }
+
+    @Bean(name = "securityTransactionManager")
+    @Autowired
+    public HibernateTransactionManager securityTransactionManager(
+            @Qualifier(value = "securitySessionFactory") SessionFactory sessionFactory) {
 
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(sessionFactory);
