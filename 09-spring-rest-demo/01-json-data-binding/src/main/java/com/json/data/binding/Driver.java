@@ -11,9 +11,15 @@ public class Driver {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             Student student = objectMapper
-                    .readValue(new File("data/sample-lite.json"), Student.class);
+                    .readValue(new File("data/sample-full.json"), Student.class);
 
             System.out.println("Student info from json file -> " + student);
+            System.out.println("Student address info from json file -> " + student.getAddress());
+            System.out.print("Student languages info from json file -> ");
+
+            for (String language : student.getLanguages()) {
+                System.out.print(language + "; ");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
