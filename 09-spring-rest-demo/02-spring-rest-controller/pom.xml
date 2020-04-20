@@ -7,6 +7,7 @@
     <groupId>com.spring.rest.controller</groupId>
     <artifactId>spring-rest-controller</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -34,7 +35,6 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${servlet-api.version}</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
