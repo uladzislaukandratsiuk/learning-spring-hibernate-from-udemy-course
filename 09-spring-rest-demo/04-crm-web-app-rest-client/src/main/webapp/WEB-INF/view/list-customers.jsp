@@ -30,7 +30,7 @@
 			<!-- put new button: Add Customer -->
 		
 			<input type="button" value="Add Customer"
-				   onclick="window.location.href='showFormForAdd'; return false;"
+				   onclick="window.location.href='add'; return false;"
 				   class="add-button"
 			/>
 		
@@ -48,7 +48,7 @@
 				<c:forEach var="tempCustomer" items="${customers}">
 				
 					<!-- construct an "update" link with customer id -->
-					<c:url var="updateLink" value="/customer/showFormForUpdate">
+					<c:url var="updateLink" value="/customer/update">
 						<c:param name="customerId" value="${tempCustomer.id}" />
 					</c:url>					
 
