@@ -10,6 +10,11 @@ public class SimpleRestController {
 
     @GetMapping("/")
     public String sayHello() {
-        return "Hello Spring Boot! Time on server is " + LocalDateTime.now();
+        return "Hello Spring Boot + DevTools! Time on server is " + LocalDateTime.now();
+    }
+
+    @GetMapping("/dev-tools")
+    public String devTools() {
+        return "Automatic reloading with DevTools!";
     }
 }
