@@ -1,10 +1,10 @@
-package com.rest.crud.api.dao;
+package com.rest.crud.api.service;
 
 import com.rest.crud.api.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
     List<Employee> findAll();
 

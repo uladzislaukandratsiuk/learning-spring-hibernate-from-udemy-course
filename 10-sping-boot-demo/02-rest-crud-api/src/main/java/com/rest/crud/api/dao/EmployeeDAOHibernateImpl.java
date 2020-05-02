@@ -31,7 +31,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
     }
 
     @Override
-    public Employee getEmployee(int id) {
+    public Employee getById(int id) {
 
         Session session = entityManager.unwrap(Session.class);
 
@@ -39,7 +39,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
     }
 
     @Override
-    public void saveEmployee(Employee employee) {
+    public void save(Employee employee) {
 
         Session session = entityManager.unwrap(Session.class);
 
@@ -47,7 +47,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
     }
 
     @Override
-    public void deleteEmployee(int id) {
+    public void deleteById(int id) {
 
         Session session = entityManager.unwrap(Session.class);
 
