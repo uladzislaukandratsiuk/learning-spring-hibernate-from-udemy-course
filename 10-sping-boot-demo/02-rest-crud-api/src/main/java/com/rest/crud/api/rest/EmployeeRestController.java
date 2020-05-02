@@ -1,11 +1,9 @@
 package com.rest.crud.api.rest;
 
-import com.rest.crud.api.dao.EmployeeDAO;
 import com.rest.crud.api.entity.Employee;
+import com.rest.crud.api.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,15 +11,55 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
+    private EmployeeService employeeService;
 
     @Autowired
-    public EmployeeRestController(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeRestController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/employees")
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
+    }
+
+    @GetMapping("/employees/{id}")
+    public Employee getById(@PathVariable int id) {
+
+        Employee employee = employeeService.getById(id);
+
+        if (employee == null) throw new RuntimeException("Employee with id=" + id + " not found!");
+
+        return employee;
+    }
+
+    @PostMapping("/employees")
+    public Employee add(@RequestBody Employee employee) {
+
+        employee.setId(0);
+
+        employeeService.save(employee);
+
+        return employee;
+    }
+
+    @PutMapping("/employees")
+    public Employee save(@RequestBody Employee employee) {
+
+        employeeService.save(employee);
+
+        return employee;
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public String deleteById(@PathVariable int id) {
+
+        Employee employee = employeeService.getById(id);
+
+        if (employee == null) throw new RuntimeException("Employee with id=" + id + " not found!");
+
+        employeeService.deleteById(id);
+
+        return "Deleted employee with id=" + id;
     }
 }
