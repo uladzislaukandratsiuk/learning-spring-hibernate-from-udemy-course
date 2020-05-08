@@ -38,4 +38,10 @@ public class EmployeeController {
         employeeService.save(employee);
         return "redirect:/employees/list";
     }
+
+    @GetMapping("/update-employee")
+    public String updateEmployee(@ModelAttribute("employeeId") int id, Model model) {
+        model.addAttribute("employee", employeeService.findById(id));
+        return "employees/form-employee";
+    }
 }
